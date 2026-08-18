@@ -42,8 +42,18 @@ public enum CatalogLabelMapper {
         CatalogOwnerRule(
             productID: "product.nicos-scratchpad",
             label: "Nicos Scratchpad",
-            bundleIDs: ["com.nstranquist.nicos-scratchpad"],
+            bundleIDs: [
+                "com.nicos.nicos-scratchpad",
+                "com.nicos.scratchpad.v2",
+                "com.nstranquist.nicos-scratchpad",
+            ],
             appNames: ["Nicos Scratchpad"]
+        ),
+        CatalogOwnerRule(
+            productID: "product.ndev-pressure",
+            label: "NDev Pressure",
+            bundleIDs: ["com.nstranquist.ndev-pressure"],
+            appNames: ["NDev Pressure"]
         ),
         CatalogOwnerRule(
             productID: "product.nicos-hidden-menubar",
@@ -60,7 +70,10 @@ public enum CatalogLabelMapper {
         CatalogOwnerRule(
             productID: "product.nicos-launcher-menubar",
             label: "Nicos Launch",
-            bundleIDs: ["com.nstranquist.nicos-launcher"],
+            bundleIDs: [
+                "com.nstranquist.nicos-launcher-menubar",
+                "com.nstranquist.nicos-launcher",
+            ],
             appNames: ["Nicos Launch"]
         ),
     ]

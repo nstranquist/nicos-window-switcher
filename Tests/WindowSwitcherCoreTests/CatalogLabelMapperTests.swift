@@ -25,6 +25,41 @@ struct CatalogLabelMapperTests {
         #expect(labeled[0].catalogLabel == "Nicos Scratchpad")
     }
 
+    @Test("live scratchpad bundle maps even when it is not the nstranquist id")
+    func liveScratchpadBundle() {
+        let record = WindowRecord(
+            id: "4:4",
+            windowNumber: 4,
+            ownerPID: 4,
+            appName: "Nicos Scratchpad",
+            title: "Scratchpad",
+            layer: 0,
+            isOnscreen: true,
+            bounds: WindowBounds(x: 0, y: 0, width: 100, height: 100),
+            kind: .standard,
+            bundleID: "com.nicos.nicos-scratchpad"
+        )
+        #expect(CatalogLabelMapper.owner(for: record)?.productID == "product.nicos-scratchpad")
+    }
+
+    @Test("ndev pressure maps from its shipped bundle")
+    func pressureBundle() {
+        let record = WindowRecord(
+            id: "5:5",
+            windowNumber: 5,
+            ownerPID: 5,
+            appName: "NDev Pressure",
+            title: "NDev Pressure",
+            layer: 0,
+            isOnscreen: true,
+            bounds: WindowBounds(x: 0, y: 0, width: 100, height: 100),
+            kind: .standard,
+            bundleID: "com.nstranquist.ndev-pressure"
+        )
+        #expect(CatalogLabelMapper.owner(for: record)?.productID == "product.ndev-pressure")
+        #expect(CatalogLabelMapper.owner(for: record)?.label == "NDev Pressure")
+    }
+
     @Test("unknown app stays unlabeled")
     func unknownUnlabeled() {
         let record = Fixtures.records().first { $0.appName == "Safari" }!

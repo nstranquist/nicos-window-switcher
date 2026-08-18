@@ -5,6 +5,7 @@ APIs only. Default hotkey is **⌃⌥Tab** so it does not steal AltTab's ⌥Tab.
 
 Study ref: `ndev refs search alt-tab` (`alt-tab-macos`, clone lift, not vendored).
 Product law: `recipe.nicos-window-switcher`.
+Public source: https://github.com/nstranquist/nicos-window-switcher
 
 ## What it does
 
