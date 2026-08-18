@@ -83,6 +83,8 @@ public struct WindowRecord: Codable, Sendable, Equatable, Identifiable {
     public var bounds: WindowBounds
     public var kind: WindowKind
     public var bundleID: String
+    public var catalogProductID: String?
+    public var catalogLabel: String?
 
     public init(
         id: String,
@@ -94,7 +96,9 @@ public struct WindowRecord: Codable, Sendable, Equatable, Identifiable {
         isOnscreen: Bool,
         bounds: WindowBounds,
         kind: WindowKind,
-        bundleID: String = ""
+        bundleID: String = "",
+        catalogProductID: String? = nil,
+        catalogLabel: String? = nil
     ) {
         self.id = id
         self.windowNumber = windowNumber
@@ -106,6 +110,8 @@ public struct WindowRecord: Codable, Sendable, Equatable, Identifiable {
         self.bounds = bounds
         self.kind = kind
         self.bundleID = bundleID
+        self.catalogProductID = catalogProductID
+        self.catalogLabel = catalogLabel
     }
 
     public var displayTitle: String {

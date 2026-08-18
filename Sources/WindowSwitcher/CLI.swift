@@ -67,7 +67,7 @@ enum CLI {
         }
         if json {
             let payload: [[String: Any]] = records.map { record in
-                [
+                var row: [String: Any] = [
                     "id": record.id,
                     "windowNumber": record.windowNumber,
                     "pid": record.ownerPID,
@@ -76,6 +76,13 @@ enum CLI {
                     "kind": record.kind.rawValue,
                     "bundleID": record.bundleID,
                 ]
+                if let productID = record.catalogProductID, !productID.isEmpty {
+                    row["catalog"] = productID
+                }
+                if let label = record.catalogLabel, !label.isEmpty {
+                    row["catalogLabel"] = label
+                }
+                return row
             }
             guard let data = try? JSONSerialization.data(withJSONObject: payload, options: [.prettyPrinted, .sortedKeys]),
                   let text = String(data: data, encoding: .utf8)

@@ -43,7 +43,17 @@ public enum SearchRanker {
         if title.lowercased().hasPrefix(q.lowercased()) { return 80 }
         if app.lowercased().hasPrefix(q.lowercased()) { return 70 }
         if title.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil { return 50 }
+        if let label = record.catalogLabel,
+           label.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil
+        {
+            return 45
+        }
         if app.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil { return 40 }
+        if let productID = record.catalogProductID,
+           productID.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil
+        {
+            return 35
+        }
         if record.displayTitle.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil { return 30 }
         return 0
     }

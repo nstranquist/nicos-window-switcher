@@ -54,6 +54,12 @@ struct OverlayView: View {
                 .font(.system(size: 11))
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
+            if let catalog = window.catalogLabel, !catalog.isEmpty {
+                Text(catalog)
+                    .font(.system(size: 10))
+                    .foregroundStyle(.tertiary)
+                    .lineLimit(1)
+            }
         }
         .padding(8)
         .background(

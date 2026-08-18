@@ -63,6 +63,7 @@ public enum WindowPipeline {
     ) -> [WindowRecord] {
         let normalized = WindowListNormalizer.normalizeAll(raw)
         let filtered = ExceptionFilter.apply(normalized, rules: exceptions)
-        return SearchRanker.rank(filtered, query: query)
+        let labeled = CatalogLabelMapper.apply(filtered)
+        return SearchRanker.rank(labeled, query: query)
     }
 }
