@@ -24,6 +24,13 @@ public struct WindowBounds: Codable, Sendable, Equatable {
     }
 
     public var area: Double { max(0, width) * max(0, height) }
+
+    public func matches(_ other: WindowBounds, tolerance: Double) -> Bool {
+        abs(x - other.x) <= tolerance
+            && abs(y - other.y) <= tolerance
+            && abs(width - other.width) <= tolerance
+            && abs(height - other.height) <= tolerance
+    }
 }
 
 /// Raw snapshot from CGWindowList (or a test fixture). No live APIs.

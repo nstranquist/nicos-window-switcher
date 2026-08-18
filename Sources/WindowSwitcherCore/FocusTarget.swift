@@ -11,6 +11,7 @@ public struct FocusTarget: Codable, Sendable, Equatable {
     public var windowNumber: UInt32
     public var appName: String
     public var title: String
+    public var bounds: WindowBounds
     public var strategy: FocusStrategy
 
     public init(
@@ -19,6 +20,7 @@ public struct FocusTarget: Codable, Sendable, Equatable {
         windowNumber: UInt32,
         appName: String,
         title: String,
+        bounds: WindowBounds,
         strategy: FocusStrategy = .axRaise
     ) {
         self.windowID = windowID
@@ -26,6 +28,7 @@ public struct FocusTarget: Codable, Sendable, Equatable {
         self.windowNumber = windowNumber
         self.appName = appName
         self.title = title
+        self.bounds = bounds
         self.strategy = strategy
     }
 }
@@ -38,6 +41,7 @@ public enum FocusMapper {
             windowNumber: record.windowNumber,
             appName: record.appName,
             title: record.title,
+            bounds: record.bounds,
             strategy: .axRaise
         )
     }

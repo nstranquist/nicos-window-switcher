@@ -12,6 +12,7 @@ struct FocusTargetTests {
         #expect(target.windowNumber == record.windowNumber)
         #expect(target.appName == record.appName)
         #expect(target.title == record.title)
+        #expect(target.bounds == record.bounds)
         #expect(target.strategy == .axRaise)
     }
 
