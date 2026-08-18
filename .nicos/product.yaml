@@ -1,0 +1,39 @@
+schema_version: 1
+id: product.nicos-window-switcher
+name: Nicos Window Switcher
+surface: products
+kind: product
+status: experimental
+persona: A Mac operator who already runs AltTab on Option-Tab and wants a nicos-owned MIT window switcher.
+jtbd: Hold a non-Option-Tab hotkey, see current-Space windows as an icon+title grid, type to filter, release to focus.
+pricing: Free and open source under MIT.
+launch: built
+license: MIT
+tags:
+    - swift
+    - macos
+    - desktop
+    - window-switcher
+    - local-first
+    - oss
+refs:
+    - kind: implements
+      target: recipe.nicos-window-switcher
+checks:
+    - name: test
+      command:
+        - make
+        - test
+      timeout_seconds: 180
+    - name: verify
+      command:
+        - make
+        - verify
+      timeout_seconds: 300
+description: Native macOS window switcher with a Carbon hotkey, icon+title grid, search, exception filters, optional thumbnails, and a list/focus CLI. Public APIs only.
+portfolio_manifest: portfolio/manifest.yaml
+recipe_id: recipe.nicos-window-switcher
+recipe_version: 1
+role: experiment
+realization:
+    lineage: bind-2026-08-18
