@@ -54,9 +54,11 @@ app=$(/usr/bin/plutil -extract app raw -expect string "$REPORT")
 showing=$(/usr/bin/plutil -extract showing raw -expect bool "$REPORT")
 allowed=$(/usr/bin/plutil -extract list_and_focus_allowed raw -expect bool "$REPORT")
 option_tab=$(/usr/bin/plutil -extract hotkey_is_option_tab raw -expect bool "$REPORT")
+hotkeys=$(/usr/bin/plutil -extract hotkeys_enabled raw -expect bool "$REPORT")
 [[ "$app" == "nicos-window-switcher" ]]
 [[ "$ok" == "true" ]]
 [[ "$showing" == "true" ]]
 [[ "$allowed" == "true" ]]
 [[ "$option_tab" == "false" ]]
+[[ "$hotkeys" == "true" ]]
 echo "headless smoke ok"

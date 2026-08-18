@@ -45,6 +45,7 @@ run: build
 install: build
 	@ditto "$(APP_DIR)" "$(INSTALLED_APP)"
 	@/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "$(INSTALLED_APP)" 2>/dev/null || true
+	@if pgrep -xq "$(EXECUTABLE)"; then pkill -x "$(EXECUTABLE)" || true; sleep 0.3; fi
 	@echo "  Installed: $(INSTALLED_APP)"
 
 uninstall:

@@ -54,6 +54,7 @@ enum CLI {
           WindowSwitcher                 Launch the overlay app
           WindowSwitcher list [--json]   List current-Space windows
           WindowSwitcher focus --id ID [--dry-run]
+          WindowSwitcher toggle          Enable/disable hotkeys on the running app
           WindowSwitcher --help
         """
     }

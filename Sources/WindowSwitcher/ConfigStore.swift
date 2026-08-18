@@ -26,4 +26,21 @@ enum ConfigStore {
             return .default
         }
     }
+
+    @discardableResult
+    static func save(_ config: SwitcherConfig) -> Bool {
+        do {
+            try config.hotkey.validated()
+            let url = configURL
+            try FileManager.default.createDirectory(
+                at: url.deletingLastPathComponent(),
+                withIntermediateDirectories: true
+            )
+            try config.encoded().write(to: url, options: .atomic)
+            return true
+        } catch {
+            fputs("window-switcher: config save failed (\(error))\n", stderr)
+            return false
+        }
+    }
 }

@@ -27,7 +27,22 @@ make install   # /Applications/Nicos Window Switcher.app — does not enable lau
 ```sh
 .build/app/Nicos\ Window\ Switcher.app/Contents/MacOS/WindowSwitcher list --json
 .build/app/Nicos\ Window\ Switcher.app/Contents/MacOS/WindowSwitcher focus --id 'PID:WID' --dry-run
+.build/app/Nicos\ Window\ Switcher.app/Contents/MacOS/WindowSwitcher toggle
 ```
+
+## Toggle on / off
+
+The app does not launch at login. Use either surface:
+
+```sh
+ndev products enable nicos-window-switcher
+ndev products run nicos-window-switcher     # starts (refuses unless enabled)
+ndev products stop nicos-window-switcher    # quits the process
+ndev products disable nicos-window-switcher # opt out
+```
+
+Or the menu-bar **WS** item: **Hotkeys** checks/unchecks ⌃⌥Tab without quitting.
+`WindowSwitcher toggle` flips that same switch on the running app.
 
 ## Config
 

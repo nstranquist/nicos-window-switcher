@@ -21,6 +21,16 @@ struct HotkeySpecTests {
         }
     }
 
+    @Test("hotkeysEnabled persists and defaults on")
+    func hotkeysTogglePersists() throws {
+        #expect(SwitcherConfig.default.hotkeysEnabled)
+        var config = SwitcherConfig.default
+        config.hotkeysEnabled = false
+        let loaded = try SwitcherConfig.load(from: config.encoded())
+        #expect(loaded.hotkeysEnabled == false)
+        #expect(loaded.hotkey == HotkeySpec.default)
+    }
+
     @Test("pipeline applies exceptions then search")
     func pipeline() {
         let windows = WindowPipeline.visibleWindows(

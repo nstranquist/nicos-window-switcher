@@ -45,7 +45,11 @@ final class OverlayController: NSObject {
         hide()
         guard let record else { return }
         let target = FocusMapper.target(for: record)
-        _ = try? WindowFocuser.focus(target, dryRun: false)
+        do {
+            _ = try WindowFocuser.focus(target, dryRun: false)
+        } catch {
+            fputs("window-switcher: focus failed: \(error)\n", stderr)
+        }
     }
 
     func applyQuery(_ query: String) {
