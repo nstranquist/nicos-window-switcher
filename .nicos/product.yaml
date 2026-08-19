@@ -8,7 +8,7 @@ persona: A Mac operator who already runs AltTab on Option-Tab and wants a nicos-
 jtbd: Hold a non-Option-Tab hotkey, see current-Space windows as an icon+title grid, type to filter, release to focus.
 pricing: Free and open source under MIT.
 launch: built
-launch_blocker: "Developer ID signed (C82D23RNQ9, 2026-08-19) and installed. Gatekeeper still rejects as Unnotarized Developer ID. Remaining: notarytool profile nicos-notary, notarize, staple."
+launch_blocker: "Developer ID signed, notarized, stapled, and installed (C82D23RNQ9, 2026-08-19). Gatekeeper accepts Notarized Developer ID."
 license: MIT
 tags:
     - swift
