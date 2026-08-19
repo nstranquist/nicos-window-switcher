@@ -8,7 +8,7 @@ persona: A Mac operator who already runs AltTab on Option-Tab and wants a nicos-
 jtbd: Hold a non-Option-Tab hotkey, see current-Space windows as an icon+title grid, type to filter, release to focus.
 pricing: Free and open source under MIT.
 launch: built
-launch_blocker: "Apple Developer Program membership is active (2026-08-19). Public source is ready. Downloadable binaries still need a Developer ID Application certificate and notarization."
+launch_blocker: "Apple Developer Program membership is active and Developer ID Application identity C82D23RNQ9 is in the login Keychain (2026-08-19). Public source is ready. Downloadable binaries still need notarization and stapling."
 license: MIT
 tags:
     - swift
